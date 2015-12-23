@@ -1,0 +1,13 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu14.04"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+    ansible.sudo = true
+    ansible.skip_tags = [
+      "V-38496" #this fails because of the vagrant user
+    ]
+    ansible.verbose = "-vvv"
+  end
+end

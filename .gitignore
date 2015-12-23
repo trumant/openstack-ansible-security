@@ -58,3 +58,8 @@ Thumbs.db
 ######################################
 AUTHORS
 ChangeLog
+
+oscap_test_run/.vagrant
+oscap_test_run/.ansible
+
+
